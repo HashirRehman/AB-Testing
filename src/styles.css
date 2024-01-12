@@ -3,3 +3,13 @@
 body {
   font-family: sans-serif;
 }
+#title{
+  text-align: center;
+}
+#test-variation{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#signup{
+  text-decoration: none;
+}
