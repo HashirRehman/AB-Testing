@@ -2,12 +2,14 @@
   "name": "blinkist-web-coding-challenge-2023",
   "version": "1.0.0",
   "description": "",
-  "main": "front-end/index.html",
+  "main": "index.html",
   "scripts": {
-    "start": "parcel front-end/index.html --open",
-    "build": "parcel build front-end/index.html"
+    "start": "parcel index.html --open",
+    "build": "parcel build index.html"
   },
   "dependencies": {
+    "articles": "^0.2.2",
+    "front-end": "^0.2.9",
     "fs-extra": "^11.2.0"
   },
   "devDependencies": {
