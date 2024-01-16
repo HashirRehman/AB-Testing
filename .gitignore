@@ -38,4 +38,4 @@ node_modules
 dist
 .cache
 tmp
-node_modules
+log

@@ -1,4 +1,4 @@
-import { setArticle } from "./backend";
+import { setArticlePageViews, setArticleSignUpCount} from "./backend";
 /**
  * Tracks a pageview to our "imaginary api" - in this demo just the browser console. ;)
  * Send as params whatever you might seem valuable to send.
@@ -6,7 +6,7 @@ import { setArticle } from "./backend";
  */
 export const trackPageview = (params, article) => {
   article = JSON.parse(article)
-  setArticle(article.id,params)
+  setArticlePageViews(article.id,params)
   console.log(`--> Tracking Pageview: ${params}`);
 };
 
@@ -17,6 +17,6 @@ export const trackPageview = (params, article) => {
  */
 export const trackEvent = (params, article) => {
   article = JSON.parse(article)
-  setArticle(article.id,params)
+  setArticleSignUpCount(article.id,params)
   console.log(`--> Tracking Event: ${params}`);
 };

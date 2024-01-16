@@ -26,6 +26,9 @@ start-backend:
 start-console:
 	rails console
 
+start-test:
+	rspec spec
+
 # Clean up generated files
 clean:
 	@echo "Cleaning up..."

@@ -7,21 +7,22 @@ let signUp = document.getElementById("signup")
 window.addEventListener('click', ()=>{
   if (!Object.keys(window.localStorage).find(x=> x=='Click')){
     window.localStorage.setItem("Click", "true")
-    trackPageview("ClickCount",window.localStorage.getItem("testVariation"))
+    trackPageview("Click",window.localStorage.getItem("testVariation"))
   }
 })
 
 window.addEventListener('DOMContentLoaded', ()=>{
+
   if (!Object.keys(window.localStorage).find(x=> x=='testVariation')){
     getRandomArticle().then(data=>{
       window.localStorage.setItem("PageView", "true")
-      trackPageview("PageView",JSON.stringify(data))
-      document.getElementById("test-variation").innerHTML = data.article
-      window.localStorage.setItem("testVariation", JSON.stringify(data))
+      trackPageview("PageView",JSON.stringify(data.article_variation))
+      document.getElementById("test-variation").innerHTML = data.article_variation.article_variation
+      window.localStorage.setItem("testVariation", JSON.stringify(data.article_variation))
       }
     )
   } else{
-    document.getElementById("test-variation").innerHTML = JSON.parse(window.localStorage.getItem("testVariation")).article
+    document.getElementById("test-variation").innerHTML = JSON.parse(window.localStorage.getItem("testVariation")).article_variation
   }
 })
 

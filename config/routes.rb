@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :articles, only: [:index] do
-        put "set_article_stats", to: "articles#set_article_stats"
+        put "set_article_sign_up_count", to: "articles#set_article_sign_up_count"
+        put "set_article_page_view", to: "articles#set_article_page_view"
       end
     end
   end

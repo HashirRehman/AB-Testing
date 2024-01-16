@@ -10,18 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_15_124320) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_16_144047) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "blogs", force: :cascade do |t|
+  create_table "articles", force: :cascade do |t|
     t.text "article"
-    t.integer "page_view"
+    t.bigint "blog_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_id"], name: "index_articles_on_blog_id"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.integer "status", default: 1
+  end
+
+  create_table "stats", force: :cascade do |t|
+    t.integer "sign_up_count"
+    t.integer "page_view_count"
     t.integer "click_count"
-    t.integer "sign_up"
+    t.bigint "variation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "ctr"
+    t.index ["variation_id"], name: "index_stats_on_variation_id"
   end
 
+  create_table "variations", force: :cascade do |t|
+    t.text "article_variation"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_variations_on_article_id"
+  end
+
+  add_foreign_key "articles", "blogs"
+  add_foreign_key "stats", "variations"
+  add_foreign_key "variations", "articles"
 end
