@@ -26,18 +26,10 @@
 
 ## Project Setup
 
-1. Run `npm install`
+1. Run `make be_setup` for database setup
 
-2. Run `npm start`
+2. Run `make fe_setup` for front end setup
 
-3. Run `bundle install` to install all gems
+3. Run `make be_server` to start backend server
 
-4. Database creation `rails db:create`
-
-5. Database initialization `rails db:migrate`
-
-6. Seeding database `rails db:seed`
-
-7. Run `rails server` to start back-end server
-
-8. Visit `localhost:1234` 
+4. Run `make fe_server` to start frontend server
